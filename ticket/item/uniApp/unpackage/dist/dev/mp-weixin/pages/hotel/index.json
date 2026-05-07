@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "酒店",
-  "usingComponents": {
-    "uni-popup": "/uni_modules/uni-popup/components/uni-popup/uni-popup",
-    "mx-date-picker": "/components/mx-datepicker/mx-datepicker"
-  }
-}

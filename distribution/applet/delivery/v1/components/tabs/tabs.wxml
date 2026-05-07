@@ -1,9 +1,0 @@
-<!--components/tabs/tabs.wxml-->
-<view class="tabs">
-  <block wx:for="{{items}}" wx:key="index">
-    <view id="item_{{index}}" data-index="{{index}}" class="tabs-item {{active == index?'active':''}}" bindtap="_handleItemTap">
-      {{item.text}}
-      <view class="tabs-item-line"></view>
-    </view>
-  </block>
-</view>
