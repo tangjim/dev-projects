@@ -1,0 +1,9 @@
+<!--custom-tab-bar/index.wxml-->
+<view class="tabbar">
+  <block wx:for="{{tabbarList}}" wx:key="index">
+    <view class="item {{active === index ? 'selectd' : ''}}" data-url="{{item.pagePath}}" data-index="{{index}}" bindtap="_switchTab">
+      <view class="iconfont ~iconfont {{item.iconFont}}"></view>
+      <text>{{item.text}}</text>
+    </view>
+  </block>
+</view>

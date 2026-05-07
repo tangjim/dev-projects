@@ -1,0 +1,2260 @@
+{
+    "code":1000,
+    "data":{
+        "products":{
+            "UBSTD001CFNN":{
+                "admissionReEntry":"USB_ULRE",
+                "serviceFee":"80.0",
+                "personTypeMaxAge":"11",
+                "ticketVoidAdvanceDays":-1,
+                "baseProduct":{
+                    "summary":"<p><span style=\"font-family:Montserrat\">One-Day Dated Admission<br />\nChild: Aged 3 to 11 years old (both inclusive) on the day of their ticket purchase<br />\n?Valid on your selected date only<br />\n?Valid at Universal Studios Beijing only</span></p>",
+                    "purchasable":true,
+                    "code":"UBSTD001CFNN",
+                    "name":"Universal Studios Beijing One-Day Dated Ticket-Child",
+                    "description":"<p><span style=\"font-family:Montserrat\"><strong>T&C</strong><br />\nBy using this ticket, you agree to the terms and conditions associated with this ticket as well as the Rules and Regulations of Universal Beijing Resort and Universal Studios Beijing which are set out on our official website at <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>:<br />\n1.    This ticket is valid only on the selected date.<br />\n2.    This ticket may not be falsified, copied, transferred or resold. This ticket is only valid for the person whose Valid ID is associated with this ticket.<br />\n3.    Parking is not included.<br />\n4.    Ticket exchange and refund policy:</span></p>\n<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n\t<thead>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Timing</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Refund Policy</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Exchange Policy</strong></span></td>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Before 00:00 at least 2 days prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Free refund</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Date exchange permitted ONE TIME ONLY (no service fee) </span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Between 00:00 2 days prior to the visit date and 23:59 1 day prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Refundable with service fee (RMB 80)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">On the day of visitation (00:00 and thereafter on the visit date)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-refundable</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><span style=\"font-family:Montserrat\">*Exchange Policy: The dated ticket can be exchanged once with a new dated ticket, provided the new ticket is of equal value. Eligibility is subject to availability, and date changes must occur before 00:00 at least 2 days prior to the visit date. Exchanges of dated tickets for a different category of dated ticket are not permitted; guests must refund their original ticket and purchase a new ticket for their new dated ticket category. <br />\n5.    Ticket cannot be combined with other offers, discounts, separately ticketed events or VIP Experiences.<br />\n6.    Ticket users assume all risks of their personal injury or property damage caused by their negligence or intentional misconduct.<br />\n7.    In consideration of extreme or severe weather or air quality that may impact our operations (e.g. snow, rain, hail, lightning, sandstorm, air pollution, etc.), park capacity, health and safety, special events, and other necessary circumstances, all or parts of park are subject to change or closure from time to time without notice and without liability to Universal Beijing Resort.<br />\n8.    For park hours, please visit <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>.<br />\n9.    Valid at Universal Studios Beijing only.<br />\n? 2021 Universal Studios. All rights reserved.</span></p>",
+                    "prices":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "value":464
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "value":523.2
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "value":523.2
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "value":297.8
+                        }
+                    ],
+                    "stocks":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "status":"normal"
+                        }
+                    ]
+                },
+                "capacityControlType":"USB_PERF",
+                "description":"北京环球影城指定当日门票-儿童票",
+                "mediaType":"GID/FR",
+                "personTypeMinAge":"3",
+                "ticketVoidAdvanceFeeDays":-2,
+                "validityWindow":"1",
+                "eventCode":"USB-FG",
+                "minQuantity":"1",
+                "ticketCategory":"Park",
+                "upgradable":"true",
+                "refundable":"true",
+                "personType":"Child",
+                "fromVisitUpgradePerfDays":-3,
+                "changePerformanceAdvanceDays":-3
+            },
+            "UBSTD001SFNN":{
+                "admissionReEntry":"USB_ULRE",
+                "serviceFee":"80.0",
+                "ticketVoidAdvanceDays":-1,
+                "baseProduct":{
+                    "summary":"<p><span style=\"font-family:Montserrat\">One-Day Dated Admission<br />\nSenior: Aged 65 years old and above on the day of their ticket purchase<br />\n?Valid on your selected date only<br />\n?Valid at Universal Studios Beijing only</span></p>",
+                    "purchasable":true,
+                    "code":"UBSTD001SFNN",
+                    "name":"Universal Studios Beijing One-Day Dated Ticket-Senior",
+                    "description":"<p><span style=\"font-family:Montserrat\"><strong>T&C</strong><br />\nBy using this ticket, you agree to the terms and conditions associated with this ticket as well as the Rules and Regulations of Universal Beijing Resort and Universal Studios Beijing which are set out on our official website at <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>:<br />\n1.    This ticket is valid only on the selected date.<br />\n2.    This ticket may not be falsified, copied, transferred or resold. This ticket is only valid for the person whose Valid ID is associated with this ticket.<br />\n3.    Parking is not included.<br />\n4.    Ticket exchange and refund policy:</span></p>\n<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n\t<thead>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Timing</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Refund Policy</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Exchange Policy</strong></span></td>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Before 00:00 at least 2 days prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Free refund</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Date exchange permitted ONE TIME ONLY (no service fee) </span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Between 00:00 2 days prior to the visit date and 23:59 1 day prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Refundable with service fee (RMB 80)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">On the day of visitation (00:00 and thereafter on the visit date)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-refundable</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><span style=\"font-family:Montserrat\">*Exchange Policy: The dated ticket can be exchanged once with a new dated ticket, provided the new ticket is of equal value. Eligibility is subject to availability, and date changes must occur before 00:00 at least 2 days prior to the visit date. Exchanges of dated tickets for a different category of dated ticket are not permitted; guests must refund their original ticket and purchase a new ticket for their new dated ticket category. <br />\n5.    Ticket cannot be combined with other offers, discounts, separately ticketed events or VIP Experiences.<br />\n6.    Ticket users assume all risks of their personal injury or property damage caused by their negligence or intentional misconduct.<br />\n7.    In consideration of extreme or severe weather or air quality that may impact our operations (e.g. snow, rain, hail, lightning, sandstorm, air pollution, etc.), park capacity, health and safety, special events, and other necessary circumstances, all or parts of park are subject to change or closure from time to time without notice and without liability to Universal Beijing Resort.<br />\n8.    For park hours, visit <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>.  <br />\n9.    Valid at Universal Studios Beijing only.<br />\n? 2021 Universal Studios. All rights reserved.</span></p>",
+                    "prices":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "value":464
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "value":523.2
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "value":523.2
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "value":449.6
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "value":371.4
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "value":297.8
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "value":297.8
+                        }
+                    ],
+                    "stocks":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "status":"normal"
+                        }
+                    ]
+                },
+                "capacityControlType":"USB_PERF",
+                "description":"北京环球影城指定当日门票-老人票",
+                "mediaType":"GID/FR",
+                "personTypeMinAge":"65",
+                "ticketVoidAdvanceFeeDays":-2,
+                "validityWindow":"1",
+                "eventCode":"USB-FG",
+                "minQuantity":"1",
+                "ticketCategory":"Park",
+                "upgradable":"true",
+                "refundable":"true",
+                "personType":"Senior",
+                "fromVisitUpgradePerfDays":-3,
+                "changePerformanceAdvanceDays":-3
+            },
+            "UBSTD001TFNN":{
+                "admissionReEntry":"USB_ULRE",
+                "serviceFee":"80.0",
+                "personTypeMaxAge":"64",
+                "ticketVoidAdvanceDays":-1,
+                "baseProduct":{
+                    "summary":"<p><span style=\"font-family:Montserrat\">One-Day Dated Admission<br />\nStandard: Aged 12 to 64 years old (both inclusive) on the day of their ticket purchase<br />\n?Valid on your selected date only<br />\n?Valid at Universal Studios Beijing only</span></p>",
+                    "purchasable":true,
+                    "code":"UBSTD001TFNN",
+                    "name":"Universal Studios Beijing One-Day Dated Ticket-Standard",
+                    "description":"<p><span style=\"font-family:Montserrat\"><strong>T&C</strong><br />\nBy using this ticket, you agree to the terms and conditions associated with this ticket as well as the Rules and Regulations of Universal Beijing Resort and Universal Studios Beijing which are set out on our official website at <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>:<br />\n1.  This ticket is valid only on the selected date.<br />\n2.  This ticket may not be falsified, copied, transferred or resold. This ticket is only valid for the person whose Valid ID is associated with this ticket.<br />\n3.  Parking is not included.<br />\n4.  Ticket exchange and refund policy:</span></p>\n<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:70%\">\n\t<thead>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Timing</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Refund Policy</strong></span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\"><strong>Exchange Policy</strong></span></td>\n\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Before 00:00 at least 2 days prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Free refund</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Date exchange permitted ONE TIME ONLY (no service fee) </span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">Between 00:00 2 days prior to the visit date and 23:59 1 day prior to the visit date</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Refundable with service fee (RMB 80)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td><span style=\"font-family:Montserrat\">On the day of visitation (00:00 and thereafter on the visit date)</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-refundable</span></td>\n\t\t\t<td><span style=\"font-family:Montserrat\">Non-exchangeable</span></td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><span style=\"font-family:Montserrat\">*Exchange Policy: The dated ticket can be exchanged once with a new dated ticket, provided the new ticket is of equal value. Eligibility is subject to availability, and date changes must occur before 00:00 at least 2 days prior to the visit date. Exchanges of dated tickets for a different category of dated ticket are not permitted; guests must refund their original ticket and purchase a new ticket for their new dated ticket category. <br />\n5.  Ticket cannot be combined with other offers, discounts, separately ticketed events or VIP Experiences.<br />\n6.  Ticket users assume all risks of their personal injury or property damage caused by their negligence or intentional misconduct.<br />\n7.  In consideration of extreme or severe weather or air quality that may impact our operations (e.g. snow, rain, hail, lightning, sandstorm, air pollution, etc.), park capacity, health and safety, special events, and other necessary circumstances, all or parts of park are subject to change or closure from time to time without notice and without liability to Universal Beijing Resort.<br />\n8.  For park hours, please visit <a href=\"https://www.universalbeijingresort.com\">https://www.universalbeijingresort.com</a>.<br />\n9.  Valid at Universal Studios Beijing only.<br />\n? 2021 Universal Studios. All rights reserved.</span></p>",
+                    "prices":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "value":614.14
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "value":696.2
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "value":696.2
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "value":595
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "value":493.8
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "value":392.6
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "value":392.6
+                        }
+                    ],
+                    "stocks":[
+                        {
+                            "datetime":"2021-10-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-10-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-11-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-12 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-13 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-14 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-15 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-16 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-17 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-18 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-19 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-20 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-21 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-22 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-23 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-24 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-25 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-26 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-27 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-28 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-29 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-30 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2021-12-31 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-01 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-02 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-03 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-04 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-05 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-06 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-07 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-08 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-09 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-10 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-11 06:00:00",
+                            "status":"normal"
+                        },
+                        {
+                            "datetime":"2022-01-12 06:00:00",
+                            "status":"normal"
+                        }
+                    ]
+                },
+                "capacityControlType":"USB_PERF",
+                "description":"北京环球影城指定当日门票-成人票",
+                "mediaType":"GID/FR",
+                "personTypeMinAge":"12",
+                "ticketVoidAdvanceFeeDays":-2,
+                "validityWindow":"1",
+                "eventCode":"USB-FG",
+                "minQuantity":"1",
+                "ticketCategory":"Park",
+                "upgradable":"true",
+                "refundable":"true",
+                "personType":"Adult",
+                "fromVisitUpgradePerfDays":-3,
+                "changePerformanceAdvanceDays":-3
+            }
+        }
+    },
+    "message":"success"
+}

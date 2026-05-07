@@ -1,0 +1,13 @@
+<!--pages/delivery/index.wxml-->
+<view class="container">
+  <view class="tab-view">
+    <tabs items="{{tabItems}}" bind:selectdTab="_selectdTab" />
+  </view>
+  <view class="component-view">
+    <template is="{{currentView}}" />
+  </view>
+</view>
+
+<template name="deliveryPlan"><delivery-plan /></template>
+<template name="deliveryRecord"><delivery-record /></template>
+<template name="retailRecord"><retail-record /></template>

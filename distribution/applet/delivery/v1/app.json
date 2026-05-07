@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/delivery/index",
+    "pages/store/index",
+    "pages/recycle/index",
+    "pages/customer/index",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/test/test"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/delivery/index",
+        "text": "配送管理"
+      },
+      {
+        "pagePath": "pages/store/index",
+        "text": "进货计划"
+      },
+      {
+        "pagePath": "pages/recycle/index",
+        "text": "退回管理"
+      },
+      {
+        "pagePath": "pages/customer/index",
+        "text": "客户管理"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "子峰配送",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "entryPagePath": "pages/delivery/index"
+}

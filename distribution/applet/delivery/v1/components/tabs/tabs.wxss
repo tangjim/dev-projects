@@ -1,0 +1,44 @@
+/* components/tabs/tabs.wxss */
+.tabs {
+  width: 750rpx;
+  height: 86rpx;
+  background: #FFFFFF;
+  border-radius: 0rpx 0rpx 0rpx 0rpx;
+  border-bottom: 2rpx solid rgba(18,17,42,0.07);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabs-item {
+  height: 86rpx;
+  font-family: Source Han Sans, Source Han Sans;
+  font-weight: 400;
+  font-size: 27rpx;
+  color: #808080;
+  line-height: 86rpx;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
+  padding: 0 19.8rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs-item.active {
+  color: #2678FF;
+  font-weight: bold;
+}
+.tabs-item .tabs-item-line {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 0%;
+  height: 6rpx;
+  background-color: #2678FF;
+  transition: width .5s;
+	-webkit-transition: width .5s; /* Safari */
+}
+.tabs-item.active .tabs-item-line {
+  width: 60%;
+}

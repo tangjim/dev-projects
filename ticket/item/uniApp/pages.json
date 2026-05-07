@@ -1,0 +1,100 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/auth/index"
+		},{
+			"path": "pages/index/index"
+		},{
+			"path": "pages/hotel/index",
+			"style": {
+				"navigationBarTitleText": "酒店"
+			}
+		},{
+			"path": "pages/hotel/info/index"
+		},{
+			"path": "pages/hotel/buy/index"
+		},{
+			"path": "pages/goods/index",
+			"style": {
+				"navigationBarTitleText": "商品"
+			}
+		},{
+			"path": "pages/goods/info/index"
+		},{
+			"path": "pages/goods/buy/index"
+		},{
+			"path": "pages/ticket/info/index"
+		},{
+			"path": "pages/ticket/buy/index"
+		},{
+			"path": "pages/order/index",
+			"style": {
+				"navigationBarTitleText": "订单"
+			}
+		},{
+			"path": "pages/personal/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "vipgo贵宾行",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents":{
+			"van-tab": "wxcomponents/vant-weapp/tab/index",
+			"van-tabs": "wxcomponents/vant-weapp/tabs/index"
+		}
+	},
+	"tabBar": {
+		"color": "#929292",
+		"selectedColor": "#0087F6",
+		"list": [
+			{
+				"text":"首页",
+				"pagePath":"pages/index/index",
+				"iconPath":"static/tabBar/home.png",
+				"selectedIconPath":"static/tabBar/hone-active.png"
+			},
+			{
+				"text":"酒店",
+				"pagePath":"pages/hotel/index",
+				"iconPath":"static/tabBar/hotel.png",
+				"selectedIconPath":"static/tabBar/hotel-active.png"
+			},
+			{
+				"text":"商品",
+				"pagePath":"pages/goods/index",
+				"iconPath":"static/tabBar/goods.png",
+				"selectedIconPath":"static/tabBar/goods-active.png"
+			},
+			{
+				"text":"订单",
+				"pagePath":"pages/order/index",
+				"iconPath":"static/tabBar/order.png",
+				"selectedIconPath":"static/tabBar/order-active.png"
+			},
+			{
+				"text":"个人中心",
+				"pagePath":"pages/personal/index",
+				"iconPath":"static/tabBar/personal.png",
+				"selectedIconPath":"static/tabBar/personal-active.png"
+			}
+		]
+	},
+	"condition": {
+		"current":3,
+		"list":[{
+			"name":"swiper",
+			"path":"pages/hotel/index"
+		},{
+			"name":"order",
+			"path":"pages/order/index"
+		},{
+			"name":"goods",
+			"path":"pages/goods/index"
+		}]
+	}
+}

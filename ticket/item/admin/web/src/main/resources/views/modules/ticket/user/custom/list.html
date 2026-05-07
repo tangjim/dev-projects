@@ -1,0 +1,108 @@
+<% layout('/layouts/default.html', {title: '用户表管理', libs: ['dataGrid']}){ %>
+<div class="main-content">
+	<div class="box box-main">
+		<div class="box-header">
+			<div class="box-title">
+				<i class="fa icon-notebook"></i> ${text('用户表管理')}
+			</div>
+		</div>
+		<div class="box-body">
+			<#form:form id="searchForm" model="${customUser}" action="${ctx}/ticket/customUser/listData" method="post" class="form-inline"
+					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
+
+				<div class="form-group">
+					<label class="control-label">${text('用户名')}：</label>
+					<div class="control-inline">
+						<#form:input path="userName" maxlength="32" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('手机号码')}：</label>
+					<div class="control-inline">
+						<#form:input path="mobilePhone" maxlength="11" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('昵称')}：</label>
+					<div class="control-inline">
+						<#form:input path="nickName" maxlength="50" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-sm">${text('查询')}</button>
+					<button type="reset" class="btn btn-default btn-sm">${text('重置')}</button>
+				</div>
+			</#form:form>
+			<table id="dataGrid"></table>
+			<div id="dataGridPage"></div>
+		</div>
+	</div>
+</div>
+<% } %>
+<script>
+// 初始化DataGrid对象
+$('#dataGrid').dataGrid({
+	searchForm: $("#searchForm"),
+	columnModel: [
+		{header:'${text("用户名")}', name:'userName', index:'a.user_name', width:150, align:"left", frozen:true, formatter: function(val, obj, row, act){
+			return '<a href="${ctx}/ticket/customUser/form?userCode='+row.userCode+'" class="btnList" data-title="${text("编辑用户表")}">'+(val||row.id)+'</a>';
+		}},
+		{header:'${text("邀请码")}', name:'inviteCode', index:'a.invite_code', width:150, align:"left"},
+		{header:'${text("手机号码")}', name:'mobilePhone', index:'a.mobile_phone', width:150, align:"left"},
+		{header:'${text("头像地址")}', name:'photoUrl', index:'a.photo_url', width:150, align:"left"},
+		{header:'${text("昵称")}', name:'nickName', index:'a.nick_name', width:150, align:"left"},
+		{header:'${text("是否代理")}', name:'isAgent', index:'a.is_agent', width:150, align:"center", formatter: function(val) {
+				return js.getDictLabel(${@DictUtils.getDictListJson('ticket_seller_state_agent')}, val, '${text("未知")}', true);
+			}},
+		{header:'${text("登录状态")}', name:'actions', index:'a.is_login', width:150, align:"center", formatter: function (val, obj, row) {
+				let actions = [];
+				actions.push(js.getDictLabel(${@DictUtils.getDictListJson('ticket_seller_state_user_login')}, row.isLogin, '${text("未知")}', true));
+				<% if(hasPermi('ticket:user:state:login')){ %>
+                   	if (row.isLogin === 0){
+                   		actions.push('<a href="${ctx}/ticket/customUser/loginDisable?id='+row.id+'" class="btnList" title="${text("禁止用户登录")}" data-confirm="${text("确认要禁止用户登录吗？")}"><i class="glyphicon glyphicon-ban-circle"></i></a>&nbsp;');
+					} else if (row.isLogin === 1) {
+						actions.push('<a href="${ctx}/ticket/customUser/loginEnable?id='+row.id+'" class="btnList" title="${text("开启用户登录")}" data-confirm="${text("确认要开启用户登录吗？")}"><i class="glyphicon glyphicon-ok-circle"></i></a>&nbsp;');
+					}
+				<%}%>
+				return actions.join('');
+			}},
+		{header:'${text("提币状态")}', name:'actions', index:'a.is_withdrawals', width:150, align:"center",  formatter: function (val, obj, row) {
+				let actions = [];
+				actions.push(js.getDictLabel(${@DictUtils.getDictListJson('ticket_seller_state_user_withdrawals')}, row.isWithdrawals, '${text("未知")}', true));
+				<% if(hasPermi('ticket:user:state:withdrawals')){ %>
+					if (row.isWithdrawals === 0){
+						actions.push('<a href="${ctx}/ticket/user/withdrawalsDisable?id='+row.id+'" class="btnList" title="${text("禁止用户提币")}" data-confirm="${text("确认要禁止用户提币吗？")}"><i class="glyphicon glyphicon-ban-circle"></i></a>&nbsp;');
+					} else if (row.isWithdrawals === 1){
+						actions.push('<a href="${ctx}/ticket/user/withdrawalsEnable?id='+row.id+'" class="btnList" title="${text("开启用户提币")}" data-confirm="${text("确认要开启用户提币吗？")}"><i class="glyphicon glyphicon-ok-circle"></i></a>&nbsp;');
+					}
+				<%}%>
+				return actions.join('');
+			}},
+		{header:'${text("交易状态")}', name:'actions', index:'a.is_transaction', width:150, align:"center", formatter: function (val, obj, row) {
+				let actions = [];
+				actions.push(js.getDictLabel(${@DictUtils.getDictListJson('ticket_seller_state_user_transaction')}, row.isTransaction, '${text("未知")}', true));
+				<% if(hasPermi('ticket:user:state:transaction')){ %>
+					if (row.isTransaction === 0){
+						actions.push('<a href="${ctx}/ticket/user/transactionDisable?id='+row.id+'" class="btnList" title="${text("禁止用户交易")}" data-confirm="${text("确认要禁止用户交易吗？")}"><i class="glyphicon glyphicon-ban-circle"></i></a>&nbsp;');
+					} else if (row.isTransaction === 1){
+						actions.push('<a href="${ctx}/ticket/user/transactionEnable?id='+row.id+'" class="btnList" title="${text("开启用户交易")}" data-confirm="${text("确认要开启用户交易吗？")}"><i class="glyphicon glyphicon-ok-circle"></i></a>&nbsp;');
+					}
+				<%}%>
+				return actions.join('');
+			}},
+		{header:'${text("注册时间")}', name:'createDate', index:'create_date', width:180, align:"center"},
+		{header:'${text("更新时间")}', name:'updateDate', index:'update_date', width:180, align:"center"},
+		{header:'${text("操作")}', name:'actions', width:120, sortable:false, title:false, formatter: function(val, obj, row, act){
+			var actions = [];
+			<% if(hasPermi('ticket:customUser:edit')){ %>
+				actions.push('<a href="${ctx}/ticket/customUser/form?userCode='+row.userCode+'" class="btnList" title="${text("编辑用户表")}"><i class="fa fa-pencil"></i></a>&nbsp;');
+			<% } %>
+			return actions.join('');
+		}}
+	],
+	// 加载成功后执行事件
+	ajaxSuccess: function(data){
+		
+	}
+});
+</script>

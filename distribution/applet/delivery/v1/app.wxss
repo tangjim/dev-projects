@@ -1,0 +1,9 @@
+/**app.wxss**/
+@import "/assets/iconfont/iconfont.wxss";
+@import "/templates/css/from.wxss";
+
+.container {
+  height: calc(100vh - 95rpx - env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+} 

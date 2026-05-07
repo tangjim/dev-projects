@@ -1,0 +1,53 @@
+
+.footer {
+  /* 画板 22 */
+  width: 100vh;
+  height: 3.86rem;
+  position: relative;
+  box-sizing: border-box;
+  border-top: 0.0625rem solid rgb(225, 225, 225);
+}
+
+.footer .footer_list {
+  /* 画板 23 */
+  position: absolute;
+  width: 24.55rem;
+  height: 3rem;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem;
+}
+
+.footer .footer_list .footer_item {
+  /* 画板 21 */
+  position: static;
+  width: 6.13rem;
+  /* 自动布局 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem 0rem 0.25rem 0rem;
+  /* Inside Auto Layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 0rem 0rem;
+
+  font-family: 思源黑体;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0rem;
+  text-align: center;
+}
+.footer .footer_list .footer_item.selected {
+  color: #2678FF;
+  font-weight: bold;
+}
+
+.footer .footer_list .footer_item .footer_item_icon {
+  font-size: 1.5rem;
+}

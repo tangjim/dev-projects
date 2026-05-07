@@ -1,0 +1,75 @@
+/* components/popup/popup.wxss */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100vh;
+  /* display: none; */
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.popup-panel {
+  flex: 1;
+  border-radius: 10rpx 10rpx 10rpx 10rpx;
+  /* width: 700rpx; */
+  /* height: 1000rpx; */
+  background-color: #ffffff;
+  margin: 0 20rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  animation: scaleIn 0.5s;
+  max-height: 80%;
+  z-index: 2;
+}
+@keyframes scaleIn {
+  from {transform: scale(0.8);opacity: 0;}
+  to {transform: scale(1);opacity: 1;}
+}
+.popup-panel .popup-panel-head {
+  height: 60rpx;
+  font-family: Source Han Sans, Source Han Sans;
+  font-weight: 400;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 60rpx;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
+  position: relative;
+}
+.popup-panel .popup-panel-head-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  cursor: pointer;
+}
+.popup-panel .popup-panel-container {
+  padding: 20rpx;
+  overflow-y: auto;
+}
+.popup-panel .popup-panel-handle {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+}

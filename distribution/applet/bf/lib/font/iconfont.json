@@ -1,0 +1,51 @@
+{
+  "id": "4795365",
+  "name": "配送",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "774486",
+      "name": "客户管理",
+      "font_class": "kehuguanli1",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "6925221",
+      "name": "采购 (1)",
+      "font_class": "caigou",
+      "unicode": "eb2f",
+      "unicode_decimal": 60207
+    },
+    {
+      "icon_id": "7935482",
+      "name": "process-setting",
+      "font_class": "process-setting",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "15779678",
+      "name": "回收",
+      "font_class": "huishou",
+      "unicode": "e701",
+      "unicode_decimal": 59137
+    },
+    {
+      "icon_id": "33839063",
+      "name": "回收",
+      "font_class": "huishou1",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "42072532",
+      "name": "配送cart-copy",
+      "font_class": "peisongcart",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+html,body {
+    font-family: Microsoft YaHei, Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: rgb(255, 255, 255);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ul,li,p,h2 {margin: 0;padding: 0;list-style: none;}
+input, button {border: 0 none;border-radius: 0;outline: none;}
+a {text-decoration:none;color: #000000;}
+a:visited {text-decoration:none;color: #000000;}
+a:hover{text-decoration:none;color: #000000;}
+a:active  {text-decoration:none;color: #000000;}
+audio, canvas, progress, video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+em {font-style:normal}
+
+.loading-animation {
+    width: 20px;
+    margin: 25px auto 0;
+}
+
+.sp {width: 20px;height: 20px;clear: both;}
+
+.sp-circle {
+    border: 4px rgb(255, 181, 174) solid;
+    border-top: 4px rgba(212,0,0,1) solid;
+    border-radius: 50%;
+    -webkit-animation: spCircRot .6s infinite linear;
+    animation: spCircRot .6s infinite linear;
+}
+@-webkit-keyframes spCircRot {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+    }
+}
+@keyframes spCircRot {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.fnt32 {font-size: 32px;}
+.fnt34 {font-size: 34px;}
+.fnt36 {font-size: 36px;}
+.fnt38 {font-size: 38px;}
+
+div.home-tabs .van-tabs--line .van-tabs__wrap{height:106px;}
+div.home-tabs .van-tabs__nav {padding-left: 14px;display: inline-block}
+div.home-tabs .van-tab {padding: 0 26px;float: left}
+div.home-tabs .van-tab span {font-size:28px;font-weight:400;line-height:106px;font-family:Microsoft YaHei;}
+div.home-tabs .van-tabs__line {padding: 0 10px;}
+
+div.quotation-tabs .van-tabs--line .van-tabs__wrap{height:80px;}
+div.quotation-tabs .van-hairline--top-bottom::after, div.quotation-tabs .van-hairline-unset--top-bottom::after {border: 0;border-bottom: 2px solid rgba(231,236,237,1);}
+div.quotation-tabs .van-tab span {font-size:28px;font-weight:400;line-height:72px;font-family:PingFang SC;}
+
+div.invitation-tabs .van-tabs--line .van-tabs__wrap{height:80px;}
+div.invitation-tabs .van-hairline--top-bottom::after, div.quotation-tabs .van-hairline-unset--top-bottom::after {border: 0;border-bottom: 3px solid rgba(231,236,237,1);}
+div.invitation-tabs .van-tab span {font-size:28px;font-weight:400;line-height:72px;font-family:PingFang SC;}
+
+
+input.form-input {border:0;background: #ffffff;margin: 0;padding: 0;}
+
+.fut-s{transform: scale(.9);transform-origin: left;width: 110%;display: inline-block}
+.fut-ss{transform: scale(.9);transform-origin: left;width: 110%;}
+.fut-s_r {transform: scale(.9);transform-origin: right;width: 110%}
+
+
+div.invitation-child-tabs .van-tabs--line .van-tabs__wrap{height:102px;}
+div.invitation-child-tabs .van-tabs__nav {padding-left: 14px;display: inline-block}
+div.invitation-child-tabs .van-tab {padding: 0 40px;float: left}
+div.invitation-child-tabs .van-tab span {font-size:28px;font-weight:400;line-height:106px;font-family:Microsoft YaHei;}
+div.invitation-child-tabs .van-tabs__line {padding: 0 10px;}
+div.invitation-child-tabs .van-hairline--top-bottom::after, div.invitation-child-tabs .van-hairline-unset--top-bottom::after {border: 0;border-bottom: 2px solid rgba(231,236,237,1);}
+
+
+.contract_select-plane .van-sidebar-item {font-size:28px;font-family:Microsoft YaHei;font-weight:400;color:rgba(71,71,71,1);border: 0}
+.contract_select-plane .van-sidebar-item--select, .contract_select-plane .van-sidebar-item--select:active {background-color: transparent;color:rgba(5,173,142,1);}
+
+.contract-tabs .van-tabs--line .van-tabs__wrap{height:80px;}
+.contract-tabs .van-hairline--top-bottom::after, div.quotation-tabs .van-hairline-unset--top-bottom::after {border: 0;border-bottom: 2px solid rgba(231,236,237,1);}
+.contract-tabs .van-tab {line-height:72px;}
+.contract-tabs .van-tab span {font-size:28px;font-weight:400;font-family:PingFang SC;}
+.contract-tabs .van-tab:nth-child(1) {color:rgba(76,185,113,1);}
+.contract-tabs .van-tab:nth-child(2) {color:rgba(237,101,94,1);}
+.contract-tabs .van-tab:nth-child(3) {color:rgba(48,118,237,1);}
+.contract-tabs .van-tab:nth-child(4) {color:rgba(71,71,71,1);}
+
+
+.contract-open_tabs .van-tabs--card .van-tabs__wrap {height: 42px;}
+.contract-open_tabs .van-tabs__nav--card {margin: 0;border: 0;height: 42px;}
+.contract-open_tabs .van-tabs__nav {background-color: rgba(246,249,249,1);}
+.contract-open_tabs .van-tabs__nav--card .van-tab {border-radius: 6px 0 0 6px;border: 0;line-height: 40px;}
+.contract-open_tabs .van-tabs__nav--card .van-tab:nth-child(2) {border-radius: 0 6px 6px 0;}
+.contract-open_tabs .van-tabs__nav--card .van-tab:nth-child(1).van-tab--active {background:rgba(76,185,113,1)}
+
+.contract-open_tabs .van-tab {padding: 0;}
+.contract-open_tabs .van-tab:nth-child(1) {color:rgba(153,153,153,1);}
+.contract-open_tabs .van-tab:nth-child(2) {color:rgba(153,153,153,1);}
+.contract-open_tabs .van-tab span {font-size: 24px;}
+
+.contract-order_tabs .van-tabs--line .van-tabs__wrap{height:102px;}
+.contract-order_tabs .van-tabs__nav {padding-left: 14px;display: inline-block}
+.contract-order_tabs .van-tab {padding: 0 40px;float: left}
+.contract-order_tabs .van-tab span {font-size:28px;font-weight:400;line-height:106px;font-family:Microsoft YaHei;}
+.contract-order_tabs .van-tabs__line {padding: 0 10px;}
+.contract-order_tabs .van-hairline--top-bottom::after, div.invitation-child-tabs .van-hairline-unset--top-bottom::after {border: 0;border-bottom: 2px solid rgba(231,236,237,1);}
+
+.form-select {height:50px;border:2px solid rgba(204,204,204,1);border-radius:6px;background-color: #ffffff;padding: 0 12px;position: relative;}
+.form-select .text {font-size: 24px;font-family:PingFang SC;font-weight:400;color:rgba(51,51,51,1);line-height:34px;margin-top: 8px;display: inline-block}
+.form-select .icon {
+    width: 20px;
+    height: 50px;
+    fill: currentColor;
+    overflow: hidden;
+    display: table-cell;
+    float: right;
+    margin-left: 10px;
+    transition: .3s;
+    transform:rotate(0deg);
+}
+.form-select .icon.open {transform:rotate(180deg);transition: .3s;}
+
+.van-button:active::before {
+    opacity: 1
+}

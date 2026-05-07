@@ -1,0 +1,59 @@
+<% layout('/layouts/default.html', {title: '订单表管理', libs: ['dataGrid']}){ %>
+<div class="main-content">
+	<div class="box box-main">
+		<div class="box-header">
+			<div class="box-title">
+				<i class="fa icon-notebook"></i> ${text('订单表管理')}
+			</div>
+		</div>
+		<div class="box-body">
+			<#form:form id="searchForm" model="${order}" action="${ctx}/ticket/order/refund/listData" method="post" class="form-inline"
+					data-page-no="${parameter.pageNo}" data-page-size="${parameter.pageSize}" data-order-by="${parameter.orderBy}">
+				<div class="form-group">
+					<label class="control-label">${text('关联订单号')}：</label>
+					<div class="control-inline">
+						<#form:input path="relationOrderNo" maxlength="32" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">${text('用户昵称')}：</label>
+					<div class="control-inline">
+						<#form:input path="customUser.nickName" maxlength="30" class="form-control width-120"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-sm">${text('查询')}</button>
+					<button type="reset" class="btn btn-default btn-sm">${text('重置')}</button>
+				</div>
+			</#form:form>
+			<table id="dataGrid"></table>
+			<div id="dataGridPage"></div>
+		</div>
+	</div>
+</div>
+<% } %>
+<script>
+// 初始化DataGrid对象
+$('#dataGrid').dataGrid({
+	searchForm: $("#searchForm"),
+	columnModel: [
+		{header:'${text("关联订单号")}', name:'relationOrderNo', index:'a.relation_order_no', width:150, align:"left", frozen:true},
+		{header:'${text("用户昵称")}', name:'customUser.nickName', index:'a.user_code', width:150, align:"left"},
+		{header:'${text("产品类型")}', name:'type', index:'a.type', width:150, align:"center"},
+		{header:'${text("产品编码")}', name:'productCode', index:'a.product_code', width:150, align:"left"},
+		{header:'${text("产品名称")}', name:'productName', index:'a.product_name', width:150, align:"left"},
+		{header:'${text("费用")}', name:'amount', index:'a.amount', width:150, align:"left"},
+		{header:'${text("数量")}', name:'num', index:'a.num', width:150, align:"left"},
+		{header:'${text("申请退款时间")}', name:'applyRefundDate', index:'a.apply_refund_date', width:150, align:"center"},
+		// {header:'${text("退款审批状态")}', name:'refundState', index:'a.refund_state', width:150, align:"center"},
+		{header:'${text("退款审批人")}', name:'refundAuditUser', index:'a.refund_audit_user', width:150, align:"left"},
+		{header:'${text("退款审批时间")}', name:'refundAuditDate', index:'a.refund_audit_date', width:150, align:"center"},
+		{header:'${text("退款订单号")}', name:'refundOrderNo', index:'a.refund_order_no', width:150, align:"left"},
+		{header:'${text("支付方退款订单号")}', name:'outRefundOrderNo', index:'a.out_refund_order_no', width:150, align:"left"}
+	],
+	// 加载成功后执行事件
+	ajaxSuccess: function(data){
+		
+	}
+});
+</script>

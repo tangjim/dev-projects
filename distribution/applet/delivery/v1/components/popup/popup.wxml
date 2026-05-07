@@ -1,0 +1,22 @@
+<!--components/popup/popup.wxml-->
+<wxs module="util" src="/utils/utils.wxs" />
+
+<view class="popup" style="display: {{show?'flex':'none'}};">
+  <view class="popup-mask" bind:tap="_closePopup"></view>
+  <view class="popup-panel">
+    <view class="popup-panel-head">
+      <text>{{title}}</text>
+      <view bind:tap="_closePopup" class="~iconfont ~icon-close popup-panel-head-close"></view>
+    </view>
+
+    <view class="popup-panel-container">
+      <scroll-view scroll-y>
+        <slot></slot>
+      </scroll-view>
+    </view>
+
+    <view class="popup-panel-handle">
+      <button class="~button ~blue" style="margin: 0;flex: 1;">确认</button>
+    </view>
+  </view>
+</view>

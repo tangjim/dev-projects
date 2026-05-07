@@ -1,0 +1,65 @@
+{
+    "pages": [
+        "pages/auth/index",
+        "pages/index/index",
+        "pages/hotel/index",
+        "pages/hotel/info/index",
+        "pages/hotel/buy/index",
+        "pages/goods/index",
+        "pages/goods/info/index",
+        "pages/goods/buy/index",
+        "pages/ticket/info/index",
+        "pages/ticket/buy/index",
+        "pages/order/index",
+        "pages/personal/index"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "vipgo贵宾行",
+        "navigationBarBackgroundColor": "#F8F8F8",
+        "backgroundColor": "#F8F8F8"
+    },
+    "tabBar": {
+        "color": "#929292",
+        "selectedColor": "#0087F6",
+        "list": [
+            {
+                "text": "首页",
+                "pagePath": "pages/index/index",
+                "iconPath": "static/tabBar/home.png",
+                "selectedIconPath": "static/tabBar/hone-active.png"
+            },
+            {
+                "text": "酒店",
+                "pagePath": "pages/hotel/index",
+                "iconPath": "static/tabBar/hotel.png",
+                "selectedIconPath": "static/tabBar/hotel-active.png"
+            },
+            {
+                "text": "商品",
+                "pagePath": "pages/goods/index",
+                "iconPath": "static/tabBar/goods.png",
+                "selectedIconPath": "static/tabBar/goods-active.png"
+            },
+            {
+                "text": "订单",
+                "pagePath": "pages/order/index",
+                "iconPath": "static/tabBar/order.png",
+                "selectedIconPath": "static/tabBar/order-active.png"
+            },
+            {
+                "text": "个人中心",
+                "pagePath": "pages/personal/index",
+                "iconPath": "static/tabBar/personal.png",
+                "selectedIconPath": "static/tabBar/personal-active.png"
+            }
+        ]
+    },
+    "permission": {},
+    "usingComponents": {
+        "van-tab": "wxcomponents/vant-weapp/tab/index",
+        "van-tabs": "wxcomponents/vant-weapp/tabs/index"
+    },
+    "sitemapLocation": "sitemap.json"
+}

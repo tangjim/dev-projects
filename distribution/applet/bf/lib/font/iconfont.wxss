@@ -1,0 +1,46 @@
+/*@font-face {
+  font-family: "iconfont";
+  src: url('/lib/font/iconfont.woff2?t=1735203879088') format('woff2'),
+       url('/lib/font/iconfont.woff?t=1735203879088') format('woff'),
+       url('/lib/font/iconfont.ttf?t=1735203879088') format('truetype');
+}*/
+
+@font-face {
+  font-family: 'iconfont';  /* Project id 4795365 */
+  src: url('//at.alicdn.com/t/c/font_4795365_wxhgc3c3euh.woff2?t=1735210436862') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4795365_wxhgc3c3euh.woff?t=1735210436862') format('woff'),
+       url('//at.alicdn.com/t/c/font_4795365_wxhgc3c3euh.ttf?t=1735210436862') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-kehuguanli1:before {
+  content: "\e686";
+}
+
+.icon-caigou:before {
+  content: "\eb2f";
+}
+
+.icon-process-setting:before {
+  content: "\e62e";
+}
+
+.icon-huishou:before {
+  content: "\e701";
+}
+
+.icon-huishou1:before {
+  content: "\e60b";
+}
+
+.icon-peisongcart:before {
+  content: "\e600";
+}
+

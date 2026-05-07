@@ -1,0 +1,91 @@
+
+.popup-panel-from {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.popup-panel-from .popup-panel-from-item {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.popup-panel-from-item-group {
+  display: flex;
+  flex-direction: row;
+  gap: 30rpx;
+}
+.popup-panel-from .popup-panel-from-item .lable {
+  font-family: Source Han Sans, Source Han Sans;
+  font-weight: 700;
+  font-size: 32rpx;
+  color: #3D3D3D;
+  line-height: 32rpx;
+  font-style: normal;
+  text-transform: none;
+}
+.popup-panel-from .popup-panel-from-item .popup-from-input,
+.popup-panel-from .popup-panel-from-item .popup-from-picker,
+.popup-panel-from .popup-panel-from-item .popup-from-textarea {
+  font-family: Source Han Sans, Source Han Sans;
+  font-weight: 400;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 28rpx;
+  font-style: normal;
+  text-transform: none;
+  padding: 16rpx;
+}
+
+/** 通用表格样式 */
+.panel-popup-table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8rpx 8rpx 8rpx 8rpx;
+  border: 2rpx solid rgba(6,6,31,0.09);
+}
+.table-header, .table-body {
+  overflow-y: auto;
+  max-height: 240rpx;
+}
+.table-header, .table-body .table-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 16rpx 0;
+  border-bottom: 2rpx solid #E2E2E2;
+}
+.table-body .table-row {
+  border-bottom: 2rpx dashed #E2E2E2;
+}
+.table-header .table-title, .table-body .table-col {
+  flex: 1 0 auto;
+  font-family: Source Han Sans, Source Han Sans;
+  font-weight: 400;
+  font-size: 24rpx;
+  color: #3D3D3D;
+  line-height: 24rpx;
+  text-align: center;
+  font-style: normal;
+  text-transform: none;
+  border-right: 2rpx solid #E2E2E2;
+  display: flex;
+  justify-content: center;
+}
+.table-header .table-title, .table-body .table-col.table-col-handle {
+  flex-direction: row;
+  gap: 10rpx;
+}
+.table-col-handle .line{
+  width: 2rpx;
+  height: 28rpx;
+  background-color: #E2E2E2;
+}
+.table-body .table-col, .table-header .table-title:last-child {
+  border: 0;
+}
+
+.table-handle {
+  display: flex;
+  padding: 20rpx 40rpx;
+}

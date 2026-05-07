@@ -1,0 +1,61 @@
+<!--pages/test/test.wxml-->
+<wxs module="util" src="/utils/utils.wxs" />
+<view class="container">
+  <view class="page-body">
+    <picker-view indicator-style="height: 68rpx;" style="width: 100%; height: 300px;" bindchange="bindChange">
+      <!-- <block wx:for="{{typeTree.level}}" wx:key="index">
+        <picker-view-column>
+          <block wx:for="{{typeTree.list}}" wx:key="typeIndex" wx:for-index="typeIndex" wx:for-item="type">
+            <block wx:if="{{index === 0 && type.pid === 0}}">
+              <view style="line-height: 68rpx;text-align: center;">{{type.name}}</view>
+            </block>
+            <block wx:if="{{index > 0 && type.pid === currentType[index-1]}}">
+              <view style="line-height: 68rpx;text-align: center;">{{type.name}}</view>
+            </block>
+          </block>
+        </picker-view-column>
+      </block> -->
+      <block wx:for="{{typeList}}" wx:key="index">
+        <picker-view-column>
+          <block wx:for="{{item}}" wx:key="typeIndex" wx:for-index="typeIndex" wx:for-item="type">
+            <block wx:if="{{type.pid === currentType[index]}}">
+              <view style="line-height: 68rpx;text-align: center;">{{type.name}}</view>
+            </block>
+          </block>
+        </picker-view-column>
+      </block>
+    </picker-view>
+
+    <view class="section">
+      <view class="section__title">多列选择器</view>
+      <picker mode="multiSelector" bind:change="_bindMultiPickerChange" value="{{pickerType.selectdTypesIndex}}" bind:cancel="_bindMultiPickerCancel" bind:columnchange="_bindMultiPickerColumnChange" range="{{typeArr}}" range-key="name">
+        <view class="picker">
+          <block wx:for="{{pickerType.list}}" wx:key="index">
+            <block wx:if="{{index > 0}}">-</block>
+            {{pickerType.list[index][pickerType.typeValuesIndex[index]].name}}
+          </block>
+        </view>
+      </picker>
+
+      <view class="section__title">多列选择器2</view>
+      <picker mode="multiSelector" bind:change="_bindMultiPickerChange2" bind:cancel="_bindMultiPickerCancel2" bind:columnchange="_bindMultiPickerColumnChange2" value="{{pickerType.valuesIndex}}" range="{{pickerDatas}}" range-key="name">
+        <view class="picker">
+          <block wx:for="{{pickerType.values}}" wx:key="index">
+            <block wx:if="{{index > 0}}">-</block>
+            {{util.arrayFindById(pickerType.datas, item, 'type').name}}
+          </block>
+        </view>
+      </picker>
+
+      <view class="section__title">多列选择器3</view>
+      <picker mode="multiSelector" bind:columnchange="_bindProductMultiPickerColumnChange" range="{{productMultiPickerData.list}}" range-key="name" value="{{productMultiPickerData.value}}">
+        <view class="picker">
+          <block wx:for="{{pickerType.values}}" wx:key="index">
+            <block wx:if="{{index > 0}}">-</block>
+            {{util.arrayFindById(pickerType.datas, item, 'type').name}}
+          </block>
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>

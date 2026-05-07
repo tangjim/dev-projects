@@ -1,0 +1,24 @@
+/* components/pages/delivery/record/record.wxss */
+@import "/templates/css/panel-item.wxss";
+@import "/templates/css/panel-popup.wxss";
+.page {
+  height: 100%;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.panel {
+  flex: 1;
+  /* display: flex; */
+  /* flex-direction: column; */
+  overflow: hidden;
+}
+.panel-list {
+  padding-top: 38rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

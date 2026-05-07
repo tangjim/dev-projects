@@ -1,0 +1,55 @@
+/*@font-face {
+  font-family: "iconfont";
+  src: url('/assets/iconfont/iconfont.woff2?t=1735833000079') format('woff2'),
+       url('/assets/iconfont/iconfont.woff?t=1735833000079') format('woff'),
+       url('/assets/iconfont/iconfont.ttf?t=1735833000079') format('truetype');
+}*/
+
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+@font-face {
+  font-family: 'iconfont';  /* Project id 4795365 */
+  src: url('//at.alicdn.com/t/c/font_4795365_9xwpg6y2sc.woff2?t=1735832981219') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4795365_9xwpg6y2sc.woff?t=1735832981219') format('woff'),
+       url('//at.alicdn.com/t/c/font_4795365_9xwpg6y2sc.ttf?t=1735832981219') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add-list:before {
+  content: "\e625";
+}
+
+.icon-close:before {
+  content: "\e615";
+}
+
+.icon-message:before {
+  content: "\e656";
+}
+
+.icon-select:before {
+  content: "\e61c";
+}
+
+.icon-tuihuoguanli:before {
+  content: "\e620";
+}
+
+.icon-kehuguanli:before {
+  content: "\e686";
+}
+
+.icon-caigou:before {
+  content: "\eb2f";
+}
+
+.icon-peisongcart:before {
+  content: "\e600";
+}
+

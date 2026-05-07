@@ -1,0 +1,3524 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "商户端",
+    "version": "last"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "基础",
+      "description": null
+    },
+    {
+      "name": "门票",
+      "description": null
+    },
+    {
+      "name": "门票/酒店订单",
+      "description": null
+    },
+    {
+      "name": "自营商品",
+      "description": null
+    },
+    {
+      "name": "自营商品订单",
+      "description": null
+    },
+    {
+      "name": "酒店",
+      "description": null
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/user/refresh": {
+      "post": {
+        "tags": [
+          "基础"
+        ],
+        "summary": "检查并刷新Token",
+        "description": "```\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"auth\": {\n            \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcGlfc3lzdGVtIiwiYXVkIjoiYXBpX3N5c3RlbSIsImlhdCI6MTYwNjcxMjkxNSwiZXhwIjoxNjA3MzE3NzE1LCJ1c2VyVWlkIjoiMTg0Mzk4MjU4OTQ3MjU2MzIwIiwiZ3VhcmQiOiJtZXJjaGFudCJ9.ZL7dUZgss79JzXsoQu1xwanP7t5E7VBfjca0sCdQIbQ\",\n            \"exp\": 1607317715\n        }\n    }\n}\n```",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:undefined)",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "auth": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        },
+                        "exp": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/ticket": {
+      "get": {
+        "tags": [
+          "门票"
+        ],
+        "summary": "获取门票列表",
+        "description": "2020 / 10 / 18 更新\n——————\n增加 TYPE 参数\n\n```\nSINGLE -> 单日\nYEAR -> 年票\nSEASON -> 季票\nVIP -> VIP\nALL -> 全部\n```\n\n门票库存数据 1 分钟刷新一次。\n\n没有被平台初始化的门票商品不被返回。\n\n门票价格的定义是门票基础价格 + （自定义商户利润 或 平台统一利润）",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "不传默认是 SINGLE ，一共有 5 个参数 SINGLE\nYEAR\nSEASON\nVIP\nALL",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "currentPage": {
+                      "type": "number"
+                    },
+                    "production": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "admissionReEntry": {
+                            "type": "string"
+                          },
+                          "baseProduct": {
+                            "type": "object",
+                            "properties": {
+                              "categories": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "code": {
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    }
+                                  }
+                                }
+                              },
+                              "code": {
+                                "type": "string",
+                                "description": "门票编号"
+                              },
+                              "description": {
+                                "type": "string",
+                                "description": "门票描述（不要使用这个）"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "门票名称"
+                              },
+                              "prices": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "datetime": {
+                                      "type": "string",
+                                      "description": "日期"
+                                    },
+                                    "value": {
+                                      "type": "number",
+                                      "description": "价格"
+                                    }
+                                  },
+                                  "required": [
+                                    "datetime",
+                                    "value"
+                                  ]
+                                },
+                                "description": "价格列表"
+                              },
+                              "purchasable": {
+                                "type": "boolean"
+                              },
+                              "stocks": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "datetime": {
+                                      "type": "string",
+                                      "description": "日期"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "description": "状态"
+                                    },
+                                    "stock": {
+                                      "type": "number",
+                                      "description": "可用库存数量"
+                                    }
+                                  },
+                                  "required": [
+                                    "datetime",
+                                    "status",
+                                    "stock"
+                                  ]
+                                },
+                                "description": "库存列表"
+                              }
+                            }
+                          },
+                          "capacityControlType": {
+                            "type": "string"
+                          },
+                          "eventCode": {
+                            "type": "string"
+                          },
+                          "extProductId": {
+                            "type": "string"
+                          },
+                          "maxQuantity": {
+                            "type": "string",
+                            "description": "单次最大购买数量"
+                          },
+                          "mediaType": {
+                            "type": "string",
+                            "description": "票验证类型 GID/FR 表示证件或人脸识别，QR Code 表示二维码，Alternate Media表示其他方式"
+                          },
+                          "minQuantity": {
+                            "type": "string",
+                            "description": "单次最小购买数量"
+                          },
+                          "offlineDate": {
+                            "type": "string"
+                          },
+                          "passType": {
+                            "type": "string",
+                            "description": "年卡季卡类型：Seasonal, Silver, Gold, Platinum"
+                          },
+                          "personTypeMaxAge": {
+                            "type": "string",
+                            "description": "购买年龄最大"
+                          },
+                          "personTypeMinAge": {
+                            "type": "string",
+                            "description": "购买年龄最小"
+                          },
+                          "refundable": {
+                            "type": "string",
+                            "description": "是否允许退票"
+                          },
+                          "serviceFee": {
+                            "type": "string",
+                            "description": "退票费"
+                          },
+                          "ticketCategory": {
+                            "type": "string",
+                            "description": "票类别：Park Ticket, Express, VIP Experiences, Annual Pass"
+                          },
+                          "uepEntitlement": {
+                            "type": "string",
+                            "description": "快速通道票的类型"
+                          },
+                          "validityWindow": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string",
+                            "description": "门票描述，使用这个"
+                          }
+                        }
+                      },
+                      "description": "门票产品列表"
+                    },
+                    "totalPageCount": {
+                      "type": "number"
+                    },
+                    "totalProductCount": {
+                      "type": "number"
+                    },
+                    "dataGetDateTime": {
+                      "type": "string",
+                      "description": "数据更新时间"
+                    }
+                  },
+                  "required": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order": {
+      "post": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "商户下单（门票）",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "门票商品 Code"
+                },
+                "datetime": {
+                  "type": "string",
+                  "description": "出行日",
+                  "mock": {
+                    "mock": "2020-11-11T00:00:00"
+                  }
+                },
+                "price": {
+                  "type": "number",
+                  "description": "价格（从列表获取的价格）"
+                },
+                "quantity": {
+                  "type": "number",
+                  "description": "购买数量（和 guest 数组匹配）"
+                },
+                "guest": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "姓名"
+                      },
+                      "id_type": {
+                        "type": "string",
+                        "description": "证件类型，支持 GovernmentId （身份证） Passport（护照）"
+                      },
+                      "id_no": {
+                        "type": "string",
+                        "description": "证件号"
+                      },
+                      "telephone": {
+                        "type": "string",
+                        "description": "联系电话（第一个联系人必填）"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "id_type",
+                      "id_no",
+                      "telephone"
+                    ]
+                  },
+                  "description": "游客信息数组"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "order_id": {
+                      "type": "string",
+                      "mock": {
+                        "mock": "U175960653633642497"
+                      },
+                      "description": "订单 UID"
+                    },
+                    "status": {
+                      "type": "string",
+                      "mock": {
+                        "mock": "PAYMENT_CAPTURED"
+                      },
+                      "description": "订单当前状态"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单列表（门票）",
+        "description": "2020-12-26 更新：\n新增4个筛选参数\n\n```\nguest_name\nguest_telephone\ntarget_at_start\ntarget_at_end\n```\n\n新增返回的字段 get\\_guest / get\\_products\n\n- - -\n\n<br>\n<br>\nNORMAL = 正常\nPROCESS = 处理中\nREFUND = 退款",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "order_uid",
+            "in": "query",
+            "required": false,
+            "description": "订单 UID",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "状态 \n允许 NORMAL / REFUND / PROCESS",
+            "type": "string"
+          },
+          {
+            "name": "price_min",
+            "in": "query",
+            "required": false,
+            "description": "最小金额",
+            "type": "string"
+          },
+          {
+            "name": "price_max",
+            "in": "query",
+            "required": false,
+            "description": "最大金额",
+            "type": "string"
+          },
+          {
+            "name": "start_at",
+            "in": "query",
+            "required": false,
+            "description": "开始时间",
+            "type": "string"
+          },
+          {
+            "name": "end_at",
+            "in": "query",
+            "required": false,
+            "description": "结束时间",
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "guest_name",
+            "in": "query",
+            "required": false,
+            "description": "旅客姓名",
+            "type": "string"
+          },
+          {
+            "name": "guest_telephone",
+            "in": "query",
+            "required": false,
+            "description": "旅客电话",
+            "type": "string"
+          },
+          {
+            "name": "target_at_start",
+            "in": "query",
+            "required": false,
+            "description": "出行日期开始 2020-12-05 00:00:00",
+            "type": "string"
+          },
+          {
+            "name": "target_at_end",
+            "in": "query",
+            "required": false,
+            "description": "出行日期结束 2020-12-06 23:59:59",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string",
+                            "description": "订单编号"
+                          },
+                          "merchant_uid": {
+                            "type": "string"
+                          },
+                          "merchant_price": {
+                            "type": "number",
+                            "description": "支付金额"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "状态"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "创建时间"
+                          },
+                          "funds_log": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "funds_uid": {
+                                  "type": "string",
+                                  "description": "支付流水号"
+                                },
+                                "order_uid": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          },
+                          "get_guests": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "full_name": {
+                                  "type": "string",
+                                  "description": "旅客姓名"
+                                },
+                                "telephone": {
+                                  "type": "string",
+                                  "description": "旅客联系方式"
+                                }
+                              }
+                            }
+                          },
+                          "get_products": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "target_at": {
+                                  "type": "string",
+                                  "description": "出行日期"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "first_page_url": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "number"
+                    },
+                    "last_page": {
+                      "type": "number"
+                    },
+                    "last_page_url": {
+                      "type": "string"
+                    },
+                    "next_page_url": {
+                      "type": "null"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "prev_page_url": {
+                      "type": "null"
+                    },
+                    "to": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/order/hotel": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单列表（酒店）",
+        "description": "这个页面的 API 返回的 DATA 实体里，不应该有 NULL，如果有可能是脏数据。",
+        "parameters": [
+          {
+            "name": "orderUid",
+            "in": "query",
+            "required": false,
+            "description": "筛选订单编号",
+            "type": "string"
+          },
+          {
+            "name": "orderAmountMin",
+            "in": "query",
+            "required": false,
+            "description": "筛选订单金额最小",
+            "type": "string"
+          },
+          {
+            "name": "orderAmountMax",
+            "in": "query",
+            "required": false,
+            "description": "筛选订单金额最大",
+            "type": "string"
+          },
+          {
+            "name": "checkInAt",
+            "in": "query",
+            "required": false,
+            "description": "入住时间",
+            "type": "string"
+          },
+          {
+            "name": "checkInEnd",
+            "in": "query",
+            "required": false,
+            "description": "离店时间",
+            "type": "string"
+          },
+          {
+            "name": "guestTelephone",
+            "in": "query",
+            "required": false,
+            "description": "联系方式",
+            "type": "string"
+          },
+          {
+            "name": "guestName",
+            "in": "query",
+            "required": false,
+            "description": "旅客姓名",
+            "type": "string"
+          },
+          {
+            "name": "createdAt",
+            "in": "query",
+            "required": false,
+            "description": "创建时间开始",
+            "type": "string"
+          },
+          {
+            "name": "createdEnd",
+            "in": "query",
+            "required": false,
+            "description": "创建时间结束",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "状态（和门票一样的，都是字符串）",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "orderUid": {
+                            "type": "string",
+                            "description": "订单编号"
+                          },
+                          "fundsUid": {
+                            "type": "string",
+                            "description": "支付流水号"
+                          },
+                          "paymentActualPayment": {
+                            "type": "string",
+                            "description": "支付金额"
+                          },
+                          "status": {
+                            "type": "number"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "description": "创建日期"
+                          },
+                          "guestName": {
+                            "type": "null",
+                            "description": "旅客姓名"
+                          },
+                          "guestTelephone": {
+                            "type": "string",
+                            "description": "旅客电话"
+                          },
+                          "checkIn": {
+                            "type": "string",
+                            "description": "入住时间"
+                          },
+                          "checkOut": {
+                            "type": "string",
+                            "description": "离店时间"
+                          },
+                          "statusDisplay": {
+                            "type": "string",
+                            "description": "状态"
+                          }
+                        },
+                        "required": [
+                          "orderUid",
+                          "fundsUid",
+                          "paymentActualPayment",
+                          "status",
+                          "createdAt",
+                          "guestName",
+                          "guestTelephone",
+                          "checkIn",
+                          "checkOut",
+                          "statusDisplay"
+                        ]
+                      }
+                    },
+                    "first_page_url": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "number"
+                    },
+                    "last_page": {
+                      "type": "number"
+                    },
+                    "last_page_url": {
+                      "type": "string"
+                    },
+                    "next_page_url": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "prev_page_url": {
+                      "type": "null"
+                    },
+                    "to": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "酒店"
+        ],
+        "summary": "酒店下单",
+        "description": "```\n{\n    \"checkIn\": \"2021-03-09\",\n    \"checkOut\": \"2021-03-10\",\n    \"hotelCode\": \"ULPEK10\",\n    \"roomTypeCode\": \"C2Q\",\n    \"ratePlanCode\": \"TABARB\",\n    \"child\": \"0\",\n    \"adult\": \"2\",\n    \"telephone\": \"15337208581\",\n    \"guest\": [\n        {\n            \"name\": \"康桐\"\n        },\n        {\n            \"name\": \"余明轩\"\n        }\n    ],\n    \"price\": 3114\n}\n```",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "checkIn": {
+                  "type": "string",
+                  "description": "入住时间"
+                },
+                "checkOut": {
+                  "type": "string",
+                  "description": "离店时间"
+                },
+                "hotelCode": {
+                  "type": "string",
+                  "description": "酒店 CODE"
+                },
+                "roomTypeCode": {
+                  "type": "string",
+                  "description": "房型 CODE"
+                },
+                "ratePlanCode": {
+                  "type": "string",
+                  "description": "房价类型 CODE"
+                },
+                "child": {
+                  "type": "string",
+                  "description": "儿童人数（总）"
+                },
+                "adult": {
+                  "type": "string",
+                  "description": "成人人数（总）"
+                },
+                "telephone": {
+                  "type": "string",
+                  "description": "联系电话"
+                },
+                "guest": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "description": "姓名"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  },
+                  "description": "旅客"
+                },
+                "price": {
+                  "type": "number",
+                  "description": "总价（需前端计算）"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/order/hotel/{orderUid}": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单详情页（酒店）",
+        "description": "如果有 NULL 的情况或 [] 的情况证明是脏数据",
+        "parameters": [
+          {
+            "name": "orderUid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "orderUid": {
+                      "type": "string",
+                      "description": "订单 UID"
+                    },
+                    "paymentActualPayment": {
+                      "type": "string",
+                      "description": "支付金额"
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "创建时间"
+                    },
+                    "statusDisplay": {
+                      "type": "string",
+                      "description": "订单状态"
+                    },
+                    "withDetails": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "orderUid": {
+                            "type": "string"
+                          },
+                          "checkIn": {
+                            "type": "string",
+                            "description": "入住时间"
+                          },
+                          "checkOut": {
+                            "type": "string",
+                            "description": "离店时间"
+                          },
+                          "hotelCode": {
+                            "type": "string",
+                            "description": "酒店 CODE"
+                          },
+                          "roomCode": {
+                            "type": "string",
+                            "description": "房型 CODE"
+                          },
+                          "ratePlanCode": {
+                            "type": "string",
+                            "description": "房价 CODE"
+                          },
+                          "fullName": {
+                            "type": "string",
+                            "description": "旅客名称"
+                          },
+                          "telephone": {
+                            "type": "string",
+                            "description": "联系电话"
+                          },
+                          "adult": {
+                            "type": "number",
+                            "description": "成人数量"
+                          },
+                          "child": {
+                            "type": "number",
+                            "description": "儿童数量"
+                          },
+                          "roomName": {
+                            "type": "null",
+                            "description": "房间名称"
+                          },
+                          "hotelName": {
+                            "type": "string",
+                            "description": "酒店名称"
+                          },
+                          "roomReservationId": {
+                            "type": "string",
+                            "description": "预留编号"
+                          }
+                        },
+                        "required": [
+                          "orderUid",
+                          "checkIn",
+                          "checkOut",
+                          "hotelCode",
+                          "roomCode",
+                          "ratePlanCode",
+                          "fullName",
+                          "telephone",
+                          "adult",
+                          "child",
+                          "roomName",
+                          "hotelName",
+                          "roomReservationId"
+                        ]
+                      },
+                      "description": "预订详情"
+                    },
+                    "withFunds": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string",
+                            "description": "订单 UID"
+                          },
+                          "funds_uid": {
+                            "type": "string",
+                            "description": "支付流水号"
+                          },
+                          "payment_class": {
+                            "type": "string"
+                          },
+                          "payment_type": {
+                            "type": "string",
+                            "description": "交易类型"
+                          },
+                          "payment_channel": {
+                            "type": "string",
+                            "description": "资金类型"
+                          },
+                          "payment_price": {
+                            "type": "string",
+                            "description": "交易金额"
+                          },
+                          "after_funds": {
+                            "type": "string",
+                            "description": "交易后余额"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "状态"
+                          },
+                          "comment": {
+                            "type": "string",
+                            "description": "说明"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "创建时间"
+                          }
+                        }
+                      },
+                      "description": "交易记录"
+                    },
+                    "withOrderLogs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "orderUid": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "记录内容"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "description": "创建时间"
+                          }
+                        }
+                      },
+                      "description": "订单记录"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/refund/ticket/order/{uid}": {
+      "post": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单退款（门票）",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/order/hotel/policy/{uid}": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单退款预检查（酒店）",
+        "description": "```\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"isAllow\": true,\n        \"fee\": 0\n    }\n}\n```",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "isAllow": {
+                      "type": "boolean",
+                      "description": "是否允许退款 "
+                    },
+                    "fee": {
+                      "type": "number",
+                      "description": "退款手续费"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/merchant/api/v2/order/hotel/refund/{uid}": {
+      "post": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "订单退款（酒店）",
+        "description": "这个接口如果拒绝退款是 400，如果退款失败是 200",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/policy/refund/{uid}": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "退款预检查（门票）",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:undefined)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "refund_fee": {
+                      "type": "number",
+                      "description": "退款服务费"
+                    },
+                    "reschedule_fee": {
+                      "type": "number",
+                      "description": "调度服务费"
+                    },
+                    "refund_allow": {
+                      "type": "boolean",
+                      "description": "是否允许退款"
+                    },
+                    "reschedule_allow": {
+                      "type": "boolean",
+                      "description": "是否允许调度"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order/query/{uid}": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "门票获取订单详情",
+        "description": "target_at 如果是空，目前返回字符串【处理中】",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:undefined)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "order_uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "order_uid": {
+                      "type": "string",
+                      "description": "订单 UID"
+                    },
+                    "merchant_uid": {
+                      "type": "string"
+                    },
+                    "merchant_price": {
+                      "type": "number",
+                      "description": "订单金额"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "订单状态"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "get_funds_log": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "funds_uid": {
+                            "type": "string",
+                            "description": "交易流水号"
+                          },
+                          "payment_price": {
+                            "type": "number",
+                            "description": "支付金额"
+                          },
+                          "after_funds": {
+                            "type": "number",
+                            "description": "余额"
+                          },
+                          "payment_channel": {
+                            "type": "string",
+                            "description": "支付渠道 DEPOSIT / CREDIT_AMOUNT"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "状态 NORMAL / CANCEL "
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "时间"
+                          }
+                        }
+                      },
+                      "description": "流水概括"
+                    },
+                    "get_products": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "target_at": {
+                            "type": "string",
+                            "description": "开始使用时间"
+                          },
+                          "target_end": {
+                            "type": "string",
+                            "description": "结束使用时间"
+                          },
+                          "that_id": {
+                            "type": "number",
+                            "description": "商品序号"
+                          },
+                          "product_number": {
+                            "type": "number",
+                            "description": "商品数量"
+                          },
+                          "merchant_product_price": {
+                            "type": "number",
+                            "description": "商户支付单价"
+                          },
+                          "product_status": {
+                            "type": "number",
+                            "description": "状态 PROCESS NORMAL REFUND UPGRADE CHANGE USED"
+                          },
+                          "guest": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "status": {
+                                  "type": "string"
+                                },
+                                "subEntryNumber": {
+                                  "type": "number"
+                                },
+                                "firstname": {
+                                  "type": "string",
+                                  "description": "名"
+                                },
+                                "lastname": {
+                                  "type": "string",
+                                  "description": "姓"
+                                }
+                              },
+                              "required": [
+                                "status",
+                                "subEntryNumber",
+                                "firstname",
+                                "lastname"
+                              ]
+                            },
+                            "description": "商品旅客信息"
+                          }
+                        },
+                        "required": []
+                      },
+                      "description": "订单商品信息"
+                    },
+                    "get_guests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "first_name": {
+                            "type": "string",
+                            "description": "名"
+                          },
+                          "last_name": {
+                            "type": "string",
+                            "description": "姓"
+                          },
+                          "id_type": {
+                            "type": "string",
+                            "description": "证件类型"
+                          },
+                          "id_no": {
+                            "type": "string",
+                            "description": "证件号"
+                          },
+                          "telephone": {
+                            "type": "string",
+                            "description": "电话号码"
+                          }
+                        },
+                        "required": [
+                          "order_uid",
+                          "first_name",
+                          "last_name",
+                          "id_type",
+                          "id_no",
+                          "telephone"
+                        ]
+                      },
+                      "description": "订单旅客信息"
+                    },
+                    "get_order_log": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "comment": {
+                            "type": "string",
+                            "description": "记录文本"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "时间"
+                          }
+                        }
+                      },
+                      "description": "订单记录"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-product/package/{uid}": {
+      "get": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "根据套餐获取可出行日期",
+        "description": "``` JSON\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": [\n        \"2021-01-13\",\n        \"2021-01-14\",\n        \"2021-01-16\"\n    ]\n}\n```\n\n返回可以出行的日期",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "套餐 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order": {
+      "post": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "自营商品下单",
+        "description": "\n``` json\n{\n    \"product\": \"205686640949932032\",\n    \"package\": \"1\",\n    \"date\": \"2021-01-12\",\n    \"resourceEntity\": [\n        {\n            \"resource\": \"205686040736641024\",\n            \"guest\": [\n                {\n                    \"name\": \"余明轩\",\n                    \"id_type\": \"GovernmentId\",\n                    \"id_no\": \"420102199305040810\"\n                },\n                {\n                    \"name\": \"余明轩\",\n                    \"id_type\": \"GovernmentId\",\n                    \"id_no\": \"420102199305040810\"\n                }\n            ]\n        },\n        {\n            \"resource\": \"205686087180169216\",\n            \"guest\": [\n                {\n                    \"name\": \"余明轩\",\n                    \"id_type\": \"GovernmentId\",\n                    \"id_no\": \"420102199305040810\"\n                },\n                {\n                    \"name\": \"余明轩\",\n                    \"id_type\": \"GovernmentId\",\n                    \"id_no\": \"420102199305040810\"\n                }\n            ]\n        }\n    ],\n    \"contact\": {\n        \"name\": \"余明轩\",\n        \"telephone\": \"15337208581\"\n    }\n}\n```\n\n返回\n\n``` json\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"orderUid\": \"SP206143350592524289\",\n        \"price\": 12.44\n    }\n}\n```",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:undefined)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "product": {
+                  "type": "string",
+                  "description": "商品 UID"
+                },
+                "package": {
+                  "type": "string",
+                  "description": "套餐 UID"
+                },
+                "date": {
+                  "type": "string",
+                  "description": "出行日期"
+                },
+                "resourceEntity": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "resource": {
+                        "type": "string",
+                        "description": "资源 UID"
+                      },
+                      "guest": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "姓名"
+                            },
+                            "id_type": {
+                              "type": "string",
+                              "description": "证件类型 ， 对应资源允许的证件类型"
+                            },
+                            "id_no": {
+                              "type": "string",
+                              "description": "证件号"
+                            }
+                          }
+                        },
+                        "description": "旅客信息"
+                      }
+                    }
+                  },
+                  "description": "下单资源实体"
+                },
+                "contact": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "姓名"
+                    },
+                    "telephone": {
+                      "type": "string",
+                      "description": "电话"
+                    }
+                  },
+                  "description": "订单联系人信息"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "自营商品订单列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "required": false,
+            "description": "订单 UID",
+            "type": "string"
+          },
+          {
+            "name": "product_uid",
+            "in": "query",
+            "required": false,
+            "description": "商品 UID",
+            "type": "string"
+          },
+          {
+            "name": "payment_amount_min",
+            "in": "query",
+            "required": false,
+            "description": "订单金额最小",
+            "type": "string"
+          },
+          {
+            "name": "payment_amount_max",
+            "in": "query",
+            "required": false,
+            "description": "订单金额最大",
+            "type": "string"
+          },
+          {
+            "name": "target_at",
+            "in": "query",
+            "required": false,
+            "description": "出行时间开始",
+            "type": "string"
+          },
+          {
+            "name": "target_end",
+            "in": "query",
+            "required": false,
+            "description": "出行时间结束",
+            "type": "string"
+          },
+          {
+            "name": "payment_date_at",
+            "in": "query",
+            "required": false,
+            "description": "支付时间开始",
+            "type": "string"
+          },
+          {
+            "name": "payment_date_end",
+            "in": "query",
+            "required": false,
+            "description": "支付时间结束",
+            "type": "string"
+          },
+          {
+            "name": "created_at",
+            "in": "query",
+            "required": false,
+            "description": "创建时间开始",
+            "type": "string"
+          },
+          {
+            "name": "created_end",
+            "in": "query",
+            "required": false,
+            "description": "创建时间结束",
+            "type": "string"
+          },
+          {
+            "name": "contract_name",
+            "in": "query",
+            "required": false,
+            "description": "联系人姓名",
+            "type": "string"
+          },
+          {
+            "name": "guest_name",
+            "in": "query",
+            "required": false,
+            "description": "旅客姓名",
+            "type": "string"
+          },
+          {
+            "name": "telephone",
+            "in": "query",
+            "required": false,
+            "description": "联系方式",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "订单状态",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uid": {
+                            "type": "string",
+                            "description": "订单 UID"
+                          },
+                          "payment_log_id": {
+                            "type": "null",
+                            "description": "支付流水号"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "创建时间"
+                          },
+                          "target_at": {
+                            "type": "string",
+                            "description": "出行日期"
+                          },
+                          "payment_datetime": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "description": "支付时间"
+                          },
+                          "status": {
+                            "type": "number"
+                          },
+                          "payment_amount": {
+                            "type": "string",
+                            "description": "订单金额"
+                          },
+                          "payment_actual_payment": {
+                            "type": [
+                              "null",
+                              "string"
+                            ],
+                            "description": "实付金额"
+                          },
+                          "status_display": {
+                            "type": "string",
+                            "description": "状态"
+                          },
+                          "get_order_resources": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "order_uid": {
+                                  "type": "string"
+                                },
+                                "resource_name": {
+                                  "type": "string",
+                                  "description": "资源名称"
+                                },
+                                "number": {
+                                  "type": "number",
+                                  "description": "购买数量"
+                                }
+                              },
+                              "required": [
+                                "order_uid",
+                                "resource_name",
+                                "number"
+                              ]
+                            },
+                            "description": "订单资源"
+                          },
+                          "get_order_guest": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "order_uid": {
+                                  "type": "string"
+                                },
+                                "full_name": {
+                                  "type": "string",
+                                  "description": "旅客姓名"
+                                },
+                                "id_type_display": {
+                                  "type": "null"
+                                }
+                              },
+                              "required": [
+                                "order_uid",
+                                "full_name",
+                                "id_type_display"
+                              ]
+                            },
+                            "description": "订单旅客"
+                          },
+                          "get_contract": {
+                            "type": "object",
+                            "properties": {
+                              "order_uid": {
+                                "type": "string"
+                              },
+                              "telephone": {
+                                "type": "string",
+                                "description": "联系方式"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "姓名"
+                              }
+                            },
+                            "description": "订单联系人"
+                          },
+                          "get_product": {
+                            "type": "object",
+                            "properties": {
+                              "order_uid": {
+                                "type": "string"
+                              },
+                              "product_uid": {
+                                "type": "string"
+                              },
+                              "package_uid": {
+                                "type": "string"
+                              },
+                              "name": {
+                                "type": "string",
+                                "description": "订单商品名称"
+                              },
+                              "package": {
+                                "type": "string",
+                                "description": "订单套餐名称"
+                              }
+                            },
+                            "description": "订单商品"
+                          }
+                        },
+                        "required": [
+                          "uid",
+                          "payment_log_id",
+                          "created_at",
+                          "target_at",
+                          "payment_datetime",
+                          "status",
+                          "payment_amount",
+                          "payment_actual_payment",
+                          "status_display",
+                          "get_order_resources",
+                          "get_order_guest",
+                          "get_contract",
+                          "get_product"
+                        ]
+                      }
+                    },
+                    "first_page_url": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "number"
+                    },
+                    "last_page": {
+                      "type": "number"
+                    },
+                    "last_page_url": {
+                      "type": "string"
+                    },
+                    "next_page_url": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "prev_page_url": {
+                      "type": "null"
+                    },
+                    "to": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-product/package/{uid}/details": {
+      "get": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "自营商品获取指定日期的资源",
+        "description": "``` json\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"resource\": [\n            {\n                \"name\": \"成人票 A\",\n                \"min_purchase\": 1,\n                \"max_purchase\": 5,\n                \"content\": \"111\",\n                \"uid\": \"205686040736641024\",\n                \"stocks\": {\n                    \"price\": 28.12,\n                    \"available_stock\": 100\n                }\n            }\n        ],\n        \"package\": {\n            \"uid\": \"207241423553212416\",\n            \"name\": \"A 长城线路清理 Clear10\",\n            \"in_car\": \"大前门步行街上车\",\n            \"in_time\": \"12:20 - 12:30\",\n            \"place_condition\": {\n                \"allow_id\": [\n                    \"GovernmentId\"\n                ]\n            }\n        }\n    }\n}\n```",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "套餐 UID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "description": "出行日期",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "resource": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "description": "资源名称"
+                          },
+                          "min_purchase": {
+                            "type": "number",
+                            "description": "最小购买量"
+                          },
+                          "max_purchase": {
+                            "type": "number",
+                            "description": "最大购买量"
+                          },
+                          "content": {
+                            "type": "string",
+                            "description": "资源说明"
+                          },
+                          "uid": {
+                            "type": "string"
+                          },
+                          "stocks": {
+                            "type": "object",
+                            "properties": {
+                              "price": {
+                                "type": "number",
+                                "description": "售价"
+                              },
+                              "available_stock": {
+                                "type": "number",
+                                "description": "库存如果为 0 ，则售罄"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "description": "可购买的资源"
+                    },
+                    "package": {
+                      "type": "object",
+                      "properties": {
+                        "uid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "套餐名称"
+                        },
+                        "in_car": {
+                          "type": "string",
+                          "description": "上车点"
+                        },
+                        "in_time": {
+                          "type": "string",
+                          "description": "上车时间"
+                        },
+                        "place_condition": {
+                          "type": "object",
+                          "properties": {
+                            "allow_id": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "证件类型"
+                            }
+                          },
+                          "description": "可预订的证件"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-product/category": {
+      "get": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "获取自营商品全部分类",
+        "description": "``` json\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"故宫游\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"北京一日游\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"测试\"\n        }\n    ]\n}\n```",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-product": {
+      "get": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "获取自营商品列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "传分类 ID（可不传）",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "current_page": {
+                      "type": "number"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uid": {
+                            "type": "string",
+                            "description": "商品 UID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "商品名称"
+                          },
+                          "self_product_category_id": {
+                            "type": "number"
+                          },
+                          "sort": {
+                            "type": "number"
+                          },
+                          "attribute": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "key": {
+                                  "type": "string",
+                                  "description": "属性名"
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "description": "属性值"
+                                }
+                              },
+                              "required": [
+                                "key",
+                                "value"
+                              ]
+                            },
+                            "description": "属性"
+                          },
+                          "status": {
+                            "type": "number"
+                          },
+                          "cover": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "cover_display": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "封面"
+                          },
+                          "min_price": {
+                            "type": "string",
+                            "description": "商品出行最低价格"
+                          }
+                        },
+                        "required": [
+                          "uid",
+                          "name",
+                          "self_product_category_id",
+                          "sort",
+                          "attribute",
+                          "status",
+                          "cover",
+                          "cover_display",
+                          "min_price"
+                        ]
+                      }
+                    },
+                    "first_page_url": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "number"
+                    },
+                    "last_page": {
+                      "type": "number"
+                    },
+                    "last_page_url": {
+                      "type": "string"
+                    },
+                    "next_page_url": {
+                      "type": "string"
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "per_page": {
+                      "type": "number"
+                    },
+                    "prev_page_url": {
+                      "type": "null"
+                    },
+                    "to": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-product/query/{uid}": {
+      "get": {
+        "tags": [
+          "自营商品"
+        ],
+        "summary": "获取自营商品详情页",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "商品 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "uid": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "商品名称"
+                    },
+                    "self_product_category_id": {
+                      "type": "number"
+                    },
+                    "sort": {
+                      "type": "number"
+                    },
+                    "cover": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "attribute": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "key",
+                          "value"
+                        ]
+                      },
+                      "description": "商品属性"
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "description": "商品说明"
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "cover_display": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "get_packages": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uid": {
+                            "type": "string",
+                            "description": "套餐 UID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "套餐名称"
+                          },
+                          "self_product_uid": {
+                            "type": "string"
+                          },
+                          "resources": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "min_price": {
+                            "type": "number",
+                            "description": "套餐价格"
+                          }
+                        }
+                      },
+                      "description": "商品套餐"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order/query/{uid}": {
+      "get": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "自营商品订单详情页",
+        "description": "",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "uid": {
+                      "type": "string",
+                      "description": "订单 UID"
+                    },
+                    "payment_log_id": {
+                      "type": "string",
+                      "description": "支付流水号"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "创建时间"
+                    },
+                    "target_at": {
+                      "type": "string",
+                      "description": "出行时间"
+                    },
+                    "payment_datetime": {
+                      "type": "string",
+                      "description": "支付时间"
+                    },
+                    "status": {
+                      "type": "number"
+                    },
+                    "payment_amount": {
+                      "type": "string",
+                      "description": "订单金额"
+                    },
+                    "payment_actual_payment": {
+                      "type": "string",
+                      "description": "订单实付金额"
+                    },
+                    "status_display": {
+                      "type": "string",
+                      "description": "状态"
+                    },
+                    "get_product": {
+                      "type": "object",
+                      "properties": {
+                        "order_uid": {
+                          "type": "string"
+                        },
+                        "product_uid": {
+                          "type": "string"
+                        },
+                        "package_uid": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "商品名称"
+                        },
+                        "package": {
+                          "type": "string",
+                          "description": "套餐名称"
+                        },
+                        "in_car": {
+                          "type": "string",
+                          "description": "上车地点"
+                        },
+                        "in_time": {
+                          "type": "string",
+                          "description": "上车时间"
+                        }
+                      },
+                      "description": "订单商品"
+                    },
+                    "get_funds_log": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "funds_uid": {
+                          "type": "string",
+                          "description": "交易流水号"
+                        },
+                        "order_uid": {
+                          "type": "string"
+                        },
+                        "order_model": {
+                          "type": "string"
+                        },
+                        "merchant_uid": {
+                          "type": "string"
+                        },
+                        "payment_class": {
+                          "type": "string"
+                        },
+                        "payment_type": {
+                          "type": "string",
+                          "description": "交易类型"
+                        },
+                        "payment_channel": {
+                          "type": "string",
+                          "description": "资金类型"
+                        },
+                        "payment_price": {
+                          "type": "string",
+                          "description": "交易金额"
+                        },
+                        "after_funds": {
+                          "type": "string",
+                          "description": "交易后余额"
+                        },
+                        "status": {
+                          "type": "string",
+                          "description": "状态"
+                        },
+                        "comment": {
+                          "type": "string",
+                          "description": "说明"
+                        },
+                        "created_at": {
+                          "type": "string",
+                          "description": "时间"
+                        },
+                        "updated_at": {
+                          "type": "string"
+                        }
+                      },
+                      "description": "流水信息"
+                    },
+                    "get_order_resources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "resource_name": {
+                            "type": "string"
+                          },
+                          "number": {
+                            "type": "number"
+                          },
+                          "price": {
+                            "type": "string"
+                          },
+                          "id": {
+                            "type": "number"
+                          },
+                          "get_guest": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "full_name": {
+                                  "type": "string"
+                                },
+                                "id_type": {
+                                  "type": "number"
+                                },
+                                "id_no": {
+                                  "type": "string"
+                                },
+                                "order_resource_id": {
+                                  "type": "number"
+                                },
+                                "id_type_display": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "full_name",
+                                "id_type",
+                                "id_no",
+                                "order_resource_id",
+                                "id_type_display"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "get_contract": {
+                      "type": "object",
+                      "properties": {
+                        "order_uid": {
+                          "type": "string"
+                        },
+                        "telephone": {
+                          "type": "string",
+                          "description": "联系方式"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "旅客姓名"
+                        }
+                      },
+                      "description": "联系人"
+                    },
+                    "get_order_logs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "order_uid": {
+                            "type": "string"
+                          },
+                          "comment": {
+                            "type": "string",
+                            "description": "内容"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "时间"
+                          }
+                        }
+                      },
+                      "description": "订单记录"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order/filter/product": {
+      "get": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "获取用于订单商品的筛选项目",
+        "description": "接口非常简单，请求一次就懂了。",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "uid": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "uid",
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order/refund/{uid}": {
+      "post": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "订单退款",
+        "description": "会返回退款单结果 AUTO\\_REFUND 闪电退款 / WAIT\\_REFUND 等待审核",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order/refund-policy/{uid}": {
+      "get": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "订单退款政策",
+        "description": "如果这个订单允许退款\n\n```\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"refundType\": \"AUTO_REFUND\",\n        \"refundAllow\": true,\n        \"paymentAmount\": \"0.01\",\n        \"paymentActualPayment\": \"0.01\",\n        \"paymentUid\": \"4200000841202101262075579348\"\n    }\n}\n```\n\n如果这个订单不允许被退款\n\n```\n{\n    \"code\": 200,\n    \"msg\": \"请求成功\",\n    \"data\": {\n        \"refundAllow\": false\n    }\n}\n```\n\n如果这个订单有不存在或有其他因素导致错误是 400\n\n```\n{\n    \"code\": 400,\n    \"msg\": \"请求内容错误，以至于服务器无法正确响应\",\n    \"data\": []\n}\n```",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "refundType": {
+                      "type": "string",
+                      "description": "AUTO_REFUND 闪电退款 / WAIT_REFUND 等待审核"
+                    },
+                    "refundAllow": {
+                      "type": "boolean",
+                      "description": "是否允许退款"
+                    },
+                    "paymentAmount": {
+                      "type": "string",
+                      "description": "订单应付金额"
+                    },
+                    "paymentActualPayment": {
+                      "type": "string",
+                      "description": "订单实付金额"
+                    },
+                    "paymentUid": {
+                      "type": "string",
+                      "description": "支付流水号"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hotel/price": {
+      "get": {
+        "tags": [
+          "酒店"
+        ],
+        "summary": "根据酒店房型查询房价",
+        "description": "关于 channelRateInfos 字段的解释参考 【根据酒店查询房型】这个APIDOC",
+        "parameters": [
+          {
+            "name": "hotelCode",
+            "in": "query",
+            "required": true,
+            "description": "酒店 CODE",
+            "type": "string"
+          },
+          {
+            "name": "roomTypeCode",
+            "in": "query",
+            "required": true,
+            "description": "房型 CODE",
+            "type": "string"
+          },
+          {
+            "name": "checkIn",
+            "in": "query",
+            "required": true,
+            "description": "入住日期",
+            "type": "string"
+          },
+          {
+            "name": "checkOut",
+            "in": "query",
+            "required": true,
+            "description": "离线日期",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ratePlanCode": {
+                        "type": "string",
+                        "description": "房价类型 Code"
+                      },
+                      "breakfastType": {
+                        "type": "string",
+                        "description": "早餐类型"
+                      },
+                      "channelRateInfos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "inactive": {
+                              "type": "boolean"
+                            },
+                            "cancelRule": {
+                              "type": "object",
+                              "properties": {
+                                "code": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "content": {
+                                        "type": "string"
+                                      },
+                                      "langCode": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "content",
+                                      "langCode"
+                                    ]
+                                  }
+                                },
+                                "inactive": {
+                                  "type": "boolean"
+                                },
+                                "firstDesc": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "langCode": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "langCode"
+                                    ]
+                                  }
+                                },
+                                "secondDesc": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "langCode": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "langCode"
+                                    ]
+                                  }
+                                },
+                                "cancelRuleDetails": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "type": {
+                                        "type": "string"
+                                      },
+                                      "remark": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "content": {
+                                              "type": "string"
+                                            },
+                                            "langCode": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "content",
+                                            "langCode"
+                                          ]
+                                        }
+                                      },
+                                      "cancelBeforeTime": {
+                                        "type": "string"
+                                      },
+                                      "dayBeforeArrival": {
+                                        "type": "number"
+                                      },
+                                      "penaltyPercent": {
+                                        "type": "number"
+                                      },
+                                      "penaltyRoomNight": {
+                                        "type": "number"
+                                      }
+                                    },
+                                    "required": [
+                                      "type",
+                                      "remark",
+                                      "cancelBeforeTime",
+                                      "dayBeforeArrival",
+                                      "penaltyPercent"
+                                    ]
+                                  }
+                                }
+                              }
+                            },
+                            "endSellDate": {
+                              "type": "string"
+                            },
+                            "beginSellDate": {
+                              "type": "string"
+                            },
+                            "sourceChannel": {
+                              "type": "object",
+                              "properties": {
+                                "code": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "content": {
+                                        "type": "string"
+                                      },
+                                      "langCode": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "content",
+                                      "langCode"
+                                    ]
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "required": [
+                            "inactive",
+                            "cancelRule",
+                            "endSellDate",
+                            "beginSellDate",
+                            "sourceChannel"
+                          ]
+                        }
+                      },
+                      "price": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "date": {
+                              "type": "string"
+                            },
+                            "tax": {
+                              "type": "object",
+                              "properties": {
+                                "percent": {
+                                  "type": "number",
+                                  "description": "税费百分比"
+                                },
+                                "amount": {
+                                  "type": "string",
+                                  "description": "固定税费金额"
+                                }
+                              },
+                              "required": [
+                                "amount"
+                              ]
+                            },
+                            "fee": {
+                              "type": "object",
+                              "properties": {
+                                "percent": {
+                                  "type": "string",
+                                  "description": "服务费百分比"
+                                },
+                                "amount": {
+                                  "type": "string",
+                                  "description": "固定服务费金额"
+                                }
+                              },
+                              "required": [
+                                "percent",
+                                "amount"
+                              ]
+                            },
+                            "adult_1": {
+                              "type": "number",
+                              "description": "一人入住价格"
+                            },
+                            "adult_2": {
+                              "type": "number",
+                              "description": "二人入住价格"
+                            },
+                            "adult_3": {
+                              "type": "null",
+                              "description": "三人入住价格"
+                            },
+                            "adult_4": {
+                              "type": "null",
+                              "description": "四人入住价格"
+                            },
+                            "adult_5": {
+                              "type": "null",
+                              "description": "五人入住价格"
+                            },
+                            "addChild": {
+                              "type": "null",
+                              "description": "增加成人入住价格"
+                            },
+                            "addAdult": {
+                              "type": "null",
+                              "description": "增加儿童入住价格"
+                            }
+                          },
+                          "required": [
+                            "date",
+                            "tax",
+                            "fee",
+                            "adult_1",
+                            "adult_2",
+                            "adult_3",
+                            "adult_4",
+                            "adult_5",
+                            "addChild",
+                            "addAdult"
+                          ]
+                        },
+                        "description": "价格"
+                      }
+                    },
+                    "required": [
+                      "ratePlanCode",
+                      "breakfastType",
+                      "channelRateInfos",
+                      "price"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hotel": {
+      "get": {
+        "tags": [
+          "酒店"
+        ],
+        "summary": "酒店列表",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "description": "酒店 CODE"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "酒店名称"
+                      },
+                      "address": {
+                        "type": "string",
+                        "description": "地址"
+                      },
+                      "telephone": {
+                        "type": "string",
+                        "description": "电话"
+                      },
+                      "email": {
+                        "type": "string",
+                        "description": "邮件"
+                      },
+                      "area": {
+                        "type": "number",
+                        "description": "面积"
+                      },
+                      "floor": {
+                        "type": "number",
+                        "description": "楼层"
+                      },
+                      "roomNumber": {
+                        "type": "number",
+                        "description": "房间总数"
+                      },
+                      "coverDisplay": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "封面"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "name",
+                      "address",
+                      "telephone",
+                      "email",
+                      "area",
+                      "floor",
+                      "roomNumber",
+                      "coverDisplay"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/hotel/room": {
+      "get": {
+        "tags": [
+          "酒店"
+        ],
+        "summary": "根据酒店查询房型",
+        "description": "返回的 JSON 比较复杂，建议仔细阅读 。\n这是 V1 版本，后面会逐步迭代优化。",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "roomNum",
+            "in": "query",
+            "required": true,
+            "description": "房间数",
+            "type": "string"
+          },
+          {
+            "name": "checkIn",
+            "in": "query",
+            "required": true,
+            "description": "入住时间",
+            "type": "string"
+          },
+          {
+            "name": "checkOut",
+            "in": "query",
+            "required": true,
+            "description": "退房时间",
+            "type": "string"
+          },
+          {
+            "name": "hotelCode",
+            "in": "query",
+            "required": true,
+            "description": "酒店 Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "hotelCode": {
+                        "type": "string",
+                        "description": "酒店 CODE"
+                      },
+                      "roomCode": {
+                        "type": "string",
+                        "description": "房型 CODE"
+                      },
+                      "roomName": {
+                        "type": "string",
+                        "description": "房型名称"
+                      },
+                      "content": {
+                        "type": "string",
+                        "description": "房型介绍"
+                      },
+                      "cover": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "area": {
+                        "type": "string",
+                        "description": "面积"
+                      },
+                      "child": {
+                        "type": "number",
+                        "description": "最大入住成人"
+                      },
+                      "adult": {
+                        "type": "number",
+                        "description": "最大入住儿童"
+                      },
+                      "maxNumber": {
+                        "type": "string",
+                        "description": "最大入住人数"
+                      },
+                      "coverDisplay": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "房型图片"
+                      }
+                    },
+                    "required": [
+                      "hotelCode",
+                      "roomCode",
+                      "roomName",
+                      "content",
+                      "cover",
+                      "area",
+                      "child",
+                      "adult",
+                      "maxNumber",
+                      "coverDisplay"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/order/rotation/{uid}": {
+      "get": {
+        "tags": [
+          "门票/酒店订单"
+        ],
+        "summary": "轮训酒店/门票订单状态接口",
+        "description": "data 里直接返回字符串，根据字符串判断，包含2个状态 PROCESS 和 DONE，如果为 PROCESS 时证明订单正在处理，为 DONE 时证明已经处理完成",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "状态数字"
+                    },
+                    "status_display": {
+                      "type": "string",
+                      "description": "状态显示"
+                    }
+                  },
+                  "description": "返回状态字符串",
+                  "required": [
+                    "status",
+                    "status_display"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/self-order/rotation/{uid}": {
+      "get": {
+        "tags": [
+          "自营商品订单"
+        ],
+        "summary": "轮训自营订单状态接口",
+        "description": "data 里直接返回字符串，根据字符串判断。\n\n一共两个状态\n\nPROCESS -> 处理中\nDONE -> 正常\n\n如果是 DONE 就页面跳转到这个订单的详情页。",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "订单 UID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "msg": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "description": "状态数字"
+                    },
+                    "status_display": {
+                      "type": "string",
+                      "description": "状态显示"
+                    }
+                  },
+                  "description": "返回状态字符串",
+                  "required": [
+                    "status",
+                    "status_display"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
